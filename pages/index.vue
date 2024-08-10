@@ -1,8 +1,8 @@
 <template>
-  <p>pages</p>
+  <div>
+    <p>pages</p>
+    <div />
+  </div>
 </template>
 
-<script lang="ts">
-const ai = '123';
-console.log(ai);
-</script>
+<script lang="ts" setup></script>
