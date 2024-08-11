@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   ssr: true,
   modules: ['@nuxt/eslint', 'nuxt-quasar-ui'],
   css: ['~/assets/styles/main.scss'],
+  alias: {
+    '@': '/<rootDir>',
+    '@assets': '/<rootDir>/assets',
+    '@images': '/<rootDir>/assets/images',
+  },
   components: [
     {
       path: '~/components',
