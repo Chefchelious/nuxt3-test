@@ -10,6 +10,6 @@
 
 <style scoped lang="scss">
 .wrapper p {
-  color: $positive;
+  color: $positive-dark;
 }
 </style>

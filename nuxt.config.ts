@@ -18,7 +18,10 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "~/assets/styles/quasar.variables.scss";',
+          additionalData: `
+            @import "~/assets/styles/quasar.variables.scss";
+            @import "~/assets/styles/mixins.scss"; // Импортируйте миксины здесь
+          `,
         },
       },
     },
