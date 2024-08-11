@@ -1,5 +1,13 @@
 <template>
-  <header>hello</header>
+  <header>
+    <Container>
+      <h1 class="logo">Annoncé</h1>
+    </Container>
+  </header>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.logo {
+  font-family: $typography-font-family-secondary;
+}
+</style>
