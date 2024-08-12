@@ -4,7 +4,7 @@
       <div class="img-wrapper q-mb-md">
         <img class="img" :src="LegacyImg" alt="img" />
       </div>
-      <h3 class="title q-mb-sm">Наследие</h3>
+      <h3 class="title q-mb-sm cursor-pointer">Наследие</h3>
       <p class="stats q-mb-md">
         <span>
           <q-icon :name="`img:${Premium}`" />
@@ -30,12 +30,16 @@
           :key="tab.id"
           :label="tab.value"
           no-caps
-          class="tab"
+          class="tab text-weight-bold"
           :class="{ 'active-tab': isActiveTab(tab.route) }"
           unelevated
           :ripple="false"
           :to="tab.route"
-        />
+        >
+          <span v-if="tab.quantity" class="quantity q-ml-sm text-grey-6">
+            {{ tab.quantity }}
+          </span>
+        </q-btn>
       </div>
     </section>
   </Container>
@@ -92,7 +96,7 @@ const routeTabs = ref<ITabs[]>([
 }
 
 .content-wrapper {
-  max-width: 360px;
+  max-width: 372px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -149,5 +153,9 @@ const routeTabs = ref<ITabs[]>([
 
 .active-tab {
   border: 1px solid #000;
+}
+
+.quantity {
+  font-weight: 500;
 }
 </style>

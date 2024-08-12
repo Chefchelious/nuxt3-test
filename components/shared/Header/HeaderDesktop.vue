@@ -1,7 +1,7 @@
 <template>
   <Container class="row justify-between items-center">
     <div class="left-col row items-center">
-      <h1 class="logo q-mr-lg">Annoncé</h1>
+      <h1 class="logo q-mr-lg cursor-pointer" @click="goToHome">Annoncé</h1>
       <div>
         <q-btn unelevated :ripple="false" class="category-btn q-py-sm" no-caps>
           <q-icon :name="`img:${CategoryIcon}`" class="q-mr-sm" />
@@ -62,6 +62,12 @@ import CategoryIcon from '~/assets/images/categories.svg';
 import MapMarker from '~/assets/images/marker.svg';
 import Burger from '~/assets/images/burger.svg';
 import ProfileImage from '~/assets/images/profile-image.jpg';
+
+const router = useRouter();
+
+const goToHome = () => {
+  router.push('/');
+};
 </script>
 
 <style scoped lang="scss">

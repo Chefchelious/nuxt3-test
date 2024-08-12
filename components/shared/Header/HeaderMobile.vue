@@ -20,7 +20,7 @@
       </q-btn>
     </div>
 
-    <h1 class="logo q-mr-xl">Annoncé</h1>
+    <h1 class="logo q-mr-xl cursor-pointer" @click="goToHome">Annoncé</h1>
 
     <q-icon class="bag cursor-pointer" :name="`img:${Bag}`" size="24px">
       <span class="bag__counter">1</span>
@@ -31,6 +31,12 @@
 <script lang="ts" setup>
 import Burger from '~/assets/images/burger.svg';
 import Bag from '~/assets/images/bag.svg';
+
+const router = useRouter();
+
+const goToHome = () => {
+  router.push('/');
+};
 </script>
 
 <style scoped lang="scss">
