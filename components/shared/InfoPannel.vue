@@ -1,28 +1,30 @@
 <template>
   <Container>
     <section class="content-wrapper q-pb-lg">
-      <div class="img-wrapper q-mb-md">
-        <img class="img" :src="LegacyImg" alt="img" />
-      </div>
-      <h3 class="title q-mb-sm cursor-pointer">Наследие</h3>
-      <p class="stats q-mb-md">
-        <span>
-          <q-icon :name="`img:${Premium}`" />
-          Документы проверены
-        </span>
-        <span>
-          <q-icon :name="`img:${Star}`" />
-          4.7
-        </span>
-        <span>19 отзывов</span>
-      </p>
+      <div class="desctop-info">
+        <div class="img-wrapper q-mb-md">
+          <img class="img" :src="LegacyImg" alt="img" />
+        </div>
+        <h3 class="title q-mb-sm cursor-pointer">Наследие</h3>
+        <p class="stats q-mb-md">
+          <span>
+            <q-icon :name="`img:${Premium}`" />
+            Документы проверены
+          </span>
+          <span>
+            <q-icon :name="`img:${Star}`" />
+            4.7
+          </span>
+          <span>19 отзывов</span>
+        </p>
 
-      <q-btn
-        :label="`${isVisibleNumber ? '+7-xxx-xxx-xx' : 'Показать номер телефона'}`"
-        class="show-number-btn text-white q-py-md q-mb-lg"
-        no-caps
-        @click="toggleNumberVisibilyty"
-      />
+        <q-btn
+          :label="`${isVisibleNumber ? '+7-xxx-xxx-xx' : 'Показать номер телефона'}`"
+          class="show-number-btn text-white q-py-md q-mb-lg"
+          no-caps
+          @click="toggleNumberVisibilyty"
+        />
+      </div>
 
       <div class="tabs row">
         <q-btn
@@ -62,14 +64,6 @@ const route = useRoute();
 
 const isVisibleNumber = ref(false);
 
-const toggleNumberVisibilyty = () => {
-  isVisibleNumber.value = !isVisibleNumber.value;
-};
-
-const isActiveTab = (tabRoute: string) => {
-  return route.path === tabRoute;
-};
-
 const routeTabs = ref<ITabs[]>([
   {
     id: '1',
@@ -88,6 +82,14 @@ const routeTabs = ref<ITabs[]>([
     route: '/about',
   },
 ]);
+
+const toggleNumberVisibilyty = () => {
+  isVisibleNumber.value = !isVisibleNumber.value;
+};
+
+const isActiveTab = (tabRoute: string) => {
+  return route.path === tabRoute;
+};
 </script>
 
 <style scoped lang="scss">
@@ -95,13 +97,20 @@ const routeTabs = ref<ITabs[]>([
   display: none;
 }
 
-.content-wrapper {
+.content-wrapper,
+.desctop-info {
   max-width: 372px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+.desctop-info {
+  @include md {
+    display: none;
+  }
 }
 
 .img-wrapper {
@@ -143,6 +152,10 @@ const routeTabs = ref<ITabs[]>([
 
 .tabs {
   gap: 8px;
+
+  @include md {
+    margin-top: 32px;
+  }
 }
 
 .tab {

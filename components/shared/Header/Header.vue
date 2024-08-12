@@ -2,10 +2,14 @@
   <header>
     <HeaderDesktop v-if="windowWidth && windowWidth >= 993" />
     <HeaderMobile v-if="windowWidth && windowWidth < 993" />
+    <q-resize-observer debounce="530" @resize="windowStore.onResize" />
   </header>
 </template>
 
 <script lang="ts" setup>
+import { useWindowSizeStore } from '~/store/windowSizeStore';
+
+const windowStore = useWindowSizeStore();
 const windowWidth = ref<number | null>(null);
 
 const updateWindowWidth = () => {
