@@ -1,26 +1,31 @@
 <template>
   <header>
-    <HeaderDesktop v-if="!isMobile" />
-    <HeaderMobile v-if="isMobile" />
-    <q-resize-observer :debounce="1" @resize="onResize" />
+    <HeaderDesktop v-if="windowWidth && windowWidth >= 993" />
+    <HeaderMobile v-if="windowWidth && windowWidth < 993" />
   </header>
 </template>
 
 <script lang="ts" setup>
-const isMobile = ref(false);
+const windowWidth = ref<number | null>(null);
 
-const onResize = (size: { width: number; height: number }) => {
-  if (size.width <= 993) {
-    isMobile.value = true;
-  } else {
-    isMobile.value = false;
-  }
+const updateWindowWidth = () => {
+  windowWidth.value = window.innerWidth;
 };
+
+onMounted(() => {
+  updateWindowWidth();
+  window.addEventListener('resize', updateWindowWidth);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWindowWidth);
+});
 </script>
 
 <style scoped lang="scss">
 header {
   background-color: #fff7eb;
   padding: 8px 0;
+  min-height: 55px;
 }
 </style>
