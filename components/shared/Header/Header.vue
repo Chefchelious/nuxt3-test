@@ -1,7 +1,7 @@
 <template>
   <header>
     <HeaderDesktop v-if="!isMobile" />
-    <HeaderMobile v-else />
+    <HeaderMobile v-if="isMobile" />
     <q-resize-observer :debounce="1" @resize="onResize" />
   </header>
 </template>

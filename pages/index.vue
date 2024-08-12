@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper">
-    <p>pages</p>
-    <q-btn icon="map" label="hello" color="accent" dense />
-    <div />
+    <InfoPannel />
   </div>
 </template>
 
