@@ -53,6 +53,10 @@ import CalendarIcon from '~/assets/images/calendar.svg';
   overflow: hidden;
   width: 100%;
   aspect-ratio: 4 / 3;
+
+  @include md {
+    aspect-ratio: 1 / 1;
+  }
 }
 
 .product-image {
