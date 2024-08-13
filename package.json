@@ -19,6 +19,7 @@
     "nuxt-quasar-ui": "^2.1.4",
     "pinia": "^2.2.1",
     "quasar": "^2.16.8",
+    "swiper": "^11.1.9",
     "vue": "latest"
   },
   "devDependencies": {

@@ -26,29 +26,35 @@
         />
       </div>
 
-      <div class="tabs row">
-        <q-btn
+      <swiper
+        :slides-per-view="'auto'"
+        :space-between="7.5"
+        class="mySwiper"
+      >
+        <swiper-slide
           v-for="tab in routeTabs"
           :key="tab.id"
-          :label="tab.value"
-          no-caps
-          class="tab text-weight-bold"
-          :class="{ 'active-tab': isActiveTab(tab.route) }"
-          unelevated
-          :ripple="false"
-          :to="tab.route"
         >
-          <span v-if="tab.quantity" class="quantity q-ml-sm text-grey-6">
-            {{ tab.quantity }}
-          </span>
-        </q-btn>
-      </div>
+          <q-btn
+            :key="tab.id"
+            :label="tab.value"
+            no-caps
+            class="tab text-weight-bold"
+            :class="{ 'active-tab': isActiveTab(tab.route) }"
+            unelevated
+            :ripple="false"
+            :to="tab.route"
+          />
+        </swiper-slide>
+      </swiper>
     </section>
   </Container>
   <q-separator size="2px" color="grey-4" />
 </template>
 
 <script setup lang="ts">
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
 import LegacyImg from '~/assets/images/legacy-logo.jpg';
 import Premium from '~/assets/images/premium.svg';
 import Star from '~/assets/images/star.svg';
@@ -95,6 +101,10 @@ const isActiveTab = (tabRoute: string) => {
 <style scoped lang="scss">
 :deep(.q-btn .q-focus-helper) {
   display: none;
+}
+
+.swiper-slide {
+  width: fit-content;
 }
 
 .content-wrapper,
@@ -148,9 +158,7 @@ const isActiveTab = (tabRoute: string) => {
   margin: 0 5px;
 }
 
-.tabs {
-  gap: 8px;
-
+.mySwiper {
   @include md {
     margin-top: 32px;
   }
