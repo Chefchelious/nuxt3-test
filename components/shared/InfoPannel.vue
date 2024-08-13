@@ -103,10 +103,6 @@ const isActiveTab = (tabRoute: string) => {
   display: none;
 }
 
-.swiper-slide {
-  width: fit-content;
-}
-
 .content-wrapper,
 .desctop-info {
   max-width: 372px;
@@ -164,6 +160,12 @@ const isActiveTab = (tabRoute: string) => {
   }
 }
 
+.swiper-slide {
+  width: fit-content;
+  display: flex;
+  align-items: stretch;
+}
+
 .tab {
   border-radius: 12px;
   background-color: #e8e8e8;
@@ -172,6 +174,7 @@ const isActiveTab = (tabRoute: string) => {
 
 .active-tab {
   border: 1px solid #000;
+  padding: 7px 11px;
 }
 
 .quantity {
