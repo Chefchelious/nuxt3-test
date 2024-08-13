@@ -5,31 +5,32 @@
 }
 
 @mixin sm {
-  @media screen and (min-width: 321px) and (max-width: 576px) {
+  @media screen and (max-width: 576px) {
     @content;
   }
 }
 
 @mixin md {
-  @media screen and (min-width: 577px) and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     @content;
   }
 }
 
 @mixin lg {
-  @media screen and (min-width: 769px) and (max-width: 992px) {
+  @media screen and (max-width: 992px) {
     @content;
   }
 }
 
 @mixin xl {
-  @media screen and (min-width: 993px) and (max-width: 1200px) {
+  @media screen and (max-width: 1200px) {
     @content;
   }
 }
 
 @mixin xxl {
-  @media screen and (min-width: 1201px) {
+  @media screen and (max-width: 1400px) {
     @content;
   }
 }
+

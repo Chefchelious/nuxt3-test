@@ -136,6 +136,8 @@ const isActiveTab = (tabRoute: string) => {
 
 .show-number-btn {
   min-width: 224px;
+  background-color: #337566;
+  border-radius: 12px;
 }
 
 .stats span:not(:last-child)::after {
@@ -144,10 +146,6 @@ const isActiveTab = (tabRoute: string) => {
   font-size: 20px;
   color: #000;
   margin: 0 5px;
-}
-.show-number-btn {
-  background-color: #337566;
-  border-radius: 12px;
 }
 
 .tabs {

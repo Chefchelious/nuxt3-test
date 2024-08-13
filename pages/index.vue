@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
     <InfoPannel />
+    <ProductList />
   </div>
 </template>
 
