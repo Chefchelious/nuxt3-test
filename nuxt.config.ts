@@ -16,6 +16,11 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+  runtimeConfig: {
+    public: {
+      mongoUrl: process.env.MONGO_URL,
+    }
+  },
   quasar: {
     cssAddon: true,
   },
@@ -31,4 +36,7 @@ export default defineNuxtConfig({
       },
     },
   },
+  nitro: {
+    plugins: ['~/server/plugins/mongoDB.ts']
+  }
 });
