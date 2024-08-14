@@ -83,15 +83,6 @@ import CalendarIcon from '~/assets/images/calendar.svg';
   line-height: 24px;
 }
 
-.product-description {
-  font-size: 0.875rem;
-  color: #777;
-  -webkit-line-clamp: 2;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 .boost-btn {
   background-color: #337566;
   border-radius: 12px;

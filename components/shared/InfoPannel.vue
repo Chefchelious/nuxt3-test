@@ -105,7 +105,7 @@ const isActiveTab = (tabRoute: string) => {
 
 .content-wrapper,
 .desctop-info {
-  max-width: 372px;
+  max-width: 560px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -140,11 +140,6 @@ const isActiveTab = (tabRoute: string) => {
   position: relative;
 }
 
-.show-number-btn {
-  min-width: 224px;
-  background-color: #337566;
-  border-radius: 12px;
-}
 
 .stats span:not(:last-child)::after {
   content: '•';
@@ -152,6 +147,12 @@ const isActiveTab = (tabRoute: string) => {
   font-size: 20px;
   color: #000;
   margin: 0 5px;
+}
+
+.show-number-btn {
+  min-width: 224px;
+  background-color: #337566;
+  border-radius: 12px;
 }
 
 .mySwiper {
