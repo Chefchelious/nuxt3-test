@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
-import type { IUserApi } from '~/types';
+import type { IUser } from '~/types';
 
-const UserSchema = new Schema<IUserApi>({
+const UserSchema = new Schema<IUser>({
   username: {
     type: String,
     required: true,
@@ -14,6 +14,6 @@ const UserSchema = new Schema<IUserApi>({
   avatar: String,
 })
 
-const User = model<IUserApi>('User', UserSchema);
+const User = model<IUser>('User', UserSchema);
 
 export default User;
