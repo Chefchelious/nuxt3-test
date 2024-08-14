@@ -17,7 +17,7 @@
             size="24px"
             color="grey"
             class="rotate-icon"
-            :class="{ 'rotate': isDropdownOpen }"
+            :class="{ rotate: isDropdownOpen }"
           />
         </div>
         <span>Сегодня с 8:00 до 23:00</span>
@@ -33,6 +33,14 @@
           </div>
         </div>
       </div>
+
+      <section class="location">
+        <div class="location__info">
+          <h4 class="location__title">Местоположение</h4>
+          <p class="location__address">Ростов на Дону, Воронежская ул., 42А корп. 1</p>
+        </div>
+        <div class="location__map" />
+      </section>
     </div>
   </div>
 </template>
@@ -97,6 +105,7 @@ onUnmounted(() => {
 .working-time {
   user-select: none;
   padding: 20px;
+  margin-bottom: 12px;
   opacity: 30%;
   border-radius: 16px;
   background: rgba(245, 245, 245, 1);
@@ -124,5 +133,61 @@ onUnmounted(() => {
 
 .rotate {
   transform: rotate(180deg);
+}
+
+.location {
+  display: flex;
+  align-items: center;
+
+  @include sm {
+   flex-direction: column;
+  }
+
+  &__info {
+    padding: 20px;
+
+    @include sm {
+      order: 1;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  &__address {
+    font-size: 17px;
+    line-height: 28px;
+    color: #337566;
+  }
+
+  &__map {
+    overflow: hidden;
+    border-radius: 0 12px 12px 0;
+    width: 200px;
+    height: 132px;
+    flex-shrink: 0;
+    background: url("assets/images/map-desktop.jpg") no-repeat center center;
+    background-size: cover;
+
+    @include sm {
+      order: 0;
+      width: 100%;
+      height: 96px;
+      background-image: url("assets/images/map-mobile.jpg");
+      border-radius: 12px 12px 0 0;
+    }
+  }
+
+  &__frame {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 </style>
