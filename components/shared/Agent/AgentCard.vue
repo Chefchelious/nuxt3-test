@@ -1,87 +1,3 @@
-<!--<template>-->
-<!--  <div class="card">-->
-<!--    <div class="img-wrapper">-->
-<!--      <img :src="AgentImageSecond" alt="img" class="img" />-->
-<!--    </div>-->
-
-<!--    <div class="card-content">-->
-<!--      <h4 class="title">Дмитрий Хитрый</h4>-->
-<!--      <p class="stats q-mb-sm">-->
-<!--        <span>-->
-<!--          <q-icon :name="`img:${Premium}`" />-->
-<!--          Документы проверены-->
-<!--        </span>-->
-<!--        <span>-->
-<!--          <q-icon :name="`img:${Star}`" />-->
-<!--          4.7-->
-<!--        </span>-->
-<!--        <span>19 отзывов</span>-->
-<!--      </p>-->
-
-<!--      <div class="description">-->
-<!--        Помог справиться с потерей и организовать похороны для 126 семей ну и-->
-<!--        еще чуть описания, чтобы дойти до конца строки и текст будет отсекаться-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</template>-->
-
-<!--<script setup lang="ts">-->
-<!--import AgentImage from '~/assets/images/agent-image.jpg';-->
-<!--import AgentImageSecond from '~/assets/images/agent-image-2.jpg';-->
-<!--import Premium from 'assets/images/premium.svg';-->
-<!--import Star from 'assets/images/star.svg';-->
-<!--</script>-->
-
-<!--<style scoped lang="scss">-->
-<!--.card {-->
-<!--  display: flex;-->
-<!--  gap: 20px;-->
-<!--  padding: 20px;-->
-<!--  background-color: #f5f5f5;-->
-<!--  border-radius: 20px;-->
-<!--}-->
-
-<!--.img-wrapper {-->
-<!--  flex: 0 1 140px;-->
-<!--  border-radius: 12px;-->
-<!--  overflow: hidden;-->
-<!--  width: 140px;-->
-<!--  height: 140px;-->
-<!--}-->
-
-<!--.img {-->
-<!--  width: 100%;-->
-<!--  height: 100%;-->
-<!--  object-fit: cover;-->
-<!--  object-position: center;-->
-<!--}-->
-
-<!--.card-content {-->
-<!--  flex: 1;-->
-<!--}-->
-
-<!--.stats span {-->
-<!--  position: relative;-->
-<!--}-->
-
-<!--.stats span:not(:last-child)::after {-->
-<!--  content: '•';-->
-<!--  font-weight: bold;-->
-<!--  font-size: 20px;-->
-<!--  color: #000;-->
-<!--  margin: 0 5px;-->
-<!--}-->
-
-<!--.description {-->
-<!--  color: #0F0F0F;-->
-<!--  -webkit-line-clamp: 3;-->
-<!--  display: -webkit-box;-->
-<!--  -webkit-box-orient: vertical;-->
-<!--  overflow: hidden;-->
-<!--}-->
-<!--</style>-->
-
 <template>
   <div class="card">
     <div class="img-wrapper">
@@ -121,7 +37,7 @@ import Star from 'assets/images/star.svg';
 <style scoped lang="scss">
 .card {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 152px 1fr;
   gap: 10px;
   padding: 20px;
   grid-auto-rows: min-content;
