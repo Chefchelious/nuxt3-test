@@ -26,8 +26,6 @@
       </div>
       <q-btn label="login" color="primary" @click="login" />
     </q-form>
-
-    <h1 v-if="user">{{ user?.username }}</h1>
   </div>
 </template>
 
@@ -35,7 +33,6 @@
 import { useUserStore } from '~/store/userStore';
 
 const userStore = useUserStore();
-const { user } = storeToRefs(userStore);
 
 const router = useRouter();
 

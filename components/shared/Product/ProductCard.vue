@@ -1,19 +1,17 @@
 <template>
   <div class="product-card">
     <div class="product-image-wrapper">
-      <img
-        class="product-image"
-        :src="img"
-        alt="Product Image"
-      />
+      <img class="product-image" :src="product.image" alt="Product Image" />
     </div>
     <div class="product-details q-pa-sm">
-      <span class="product-price">3 285 000 ₽</span>
-      <p class="product-title">Hyundai Sonata 2.0 AT, 2023, 30 км</p>
+      <span class="product-price">{{ product.price }} ₽</span>
+      <p class="product-title">{{ product.title }}</p>
     </div>
     <q-separator size="1px" color="grey" />
 
-    <div class="card-footer row items-center no-wrap justify-between q-mt-md q-pa-sm">
+    <div
+      class="card-footer row items-center no-wrap justify-between q-mt-md q-pa-sm"
+    >
       <span class="boost-text">Увеличьте количество просмотров</span>
       <q-btn class="boost-btn text-white q-pa-sm" label="Продвигать" no-caps />
     </div>
@@ -21,7 +19,7 @@
     <div class="info-block row items-center no-wrap">
       <div class="views q-mr-sm">
         <q-icon :name="`img:${EyeIcon}`" size="20px" />
-        <span>255</span>
+        <span>{{ product.views }}</span>
       </div>
       <div class="days-ago">
         <q-icon :name="`img:${CalendarIcon}`" size="20px" />
@@ -32,11 +30,16 @@
 </template>
 
 <script lang="ts" setup>
-import ProductImage from '~/assets/images/product-image.jpg';
 import EyeIcon from '~/assets/images/eye-icon.svg';
 import CalendarIcon from '~/assets/images/calendar.svg';
+import type { IProductApi } from '~/types';
 
-const img = 'https://res.cloudinary.com/drldbigc4/image/upload/v1723720624/Img-1_uaucdi.jpg'
+defineProps<{
+  product: IProductApi;
+}>();
+
+const img =
+  'https://res.cloudinary.com/drldbigc4/image/upload/v1723720624/Img-1_uaucdi.jpg';
 </script>
 
 <style scoped lang="scss">
@@ -106,7 +109,8 @@ const img = 'https://res.cloudinary.com/drldbigc4/image/upload/v1723720624/Img-1
   top: 8px;
 }
 
-.views, .days-ago {
+.views,
+.days-ago {
   display: flex;
   align-items: center;
   gap: 4px;

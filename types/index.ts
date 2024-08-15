@@ -47,6 +47,10 @@ export interface IProduct {
   status: ProductStatus;
 }
 
+export interface IProductApi extends IProduct {
+  _id: string;
+}
+
 export interface IAgentFeedback {
   rating: string;
   reviews: number; // в реале это будет массив с отзывом и ссылкой на пользователя
