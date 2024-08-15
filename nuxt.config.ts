@@ -19,6 +19,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       mongoUrl: process.env.MONGO_URL,
+      jwtAccessSecret: process.env.JWT_ACCESS_SECRET,
+      jwtRefreshSecret: process.env.JWT_REFRESH_SECRET,
     }
   },
   quasar: {

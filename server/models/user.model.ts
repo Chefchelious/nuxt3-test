@@ -12,7 +12,7 @@ const UserSchema = new Schema<IUser>({
     required: true,
   },
   avatar: String,
-})
+});
 
 const User = model<IUser>('User', UserSchema);
 

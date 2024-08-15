@@ -3,7 +3,7 @@ import type { ObjectId } from 'mongodb';
 export interface IUser {
   username: string;
   password: string;
-  avatar: string;
+  avatar?: string;
 }
 
 export enum ProductStatus {
@@ -64,4 +64,9 @@ export interface ICompany {
     longitude: number;
   };
   workSchedule: IWorkDay[];
+}
+
+export interface ITokenSchema {
+  refreshToken: string;
+  user: ObjectId;
 }
