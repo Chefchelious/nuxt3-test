@@ -40,3 +40,8 @@
 5. Открыть в браузере: http://localhost:3000/
 
 Страница логина доступна по пути http://localhost:3000/login
+
+**Тестовый пользователь: username: admin, password: secret**
+- **Тестовый пользователь**:
+    - **username**: admin
+    - **password**: secret
