@@ -1,12 +1,11 @@
 <template>
   <div>
     <InfoPannel />
-    <div class="wrapper">
+    <div v-if="companyInfo" class="wrapper">
       <section class="about">
         <h3 class="about__title">О компании</h3>
         <p class="about__description">
-          Копкой занимаемся 15 лет. Все началось с хобби и плавно переросло в
-          любимую работу. Работаем с профессиональной техникой.
+          {{ companyInfo.description }}
         </p>
       </section>
       <div class="working-time cursor-pointer" @click.stop="toggleDropdown">
@@ -37,7 +36,7 @@
       <section class="location">
         <div class="location__info">
           <h4 class="location__title">Местоположение</h4>
-          <p class="location__address">Ростов на Дону, Воронежская ул., 42А корп. 1</p>
+          <p class="location__address">{{ companyInfo.address }}</p>
         </div>
         <div class="location__map" />
       </section>
@@ -47,10 +46,16 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useCompanyStore } from '~/store/companyStore';
+
+const companyStore = useCompanyStore();
+const { companyInfo } = storeToRefs(companyStore);
 
 const isDropdownOpen = ref(false);
 const dropdown = ref<HTMLElement | null>(null);
 const dropdownHeight = ref(0);
+
+const loading = ref(false);
 
 const toggleDropdown = async () => {
   isDropdownOpen.value = !isDropdownOpen.value;
@@ -69,7 +74,21 @@ const closeDropdown = (event: MouseEvent) => {
   }
 };
 
+// роут защищен axios interceptor, но по-хорошему middleware надо написать
+
+const getCompanyInfo = async () => {
+  try {
+    loading.value = true;
+    await companyStore.get();
+  } catch (e: unknown) {
+    console.error(e); // заменить на notify
+  } finally {
+    loading.value = false;
+  }
+};
+
 onMounted(() => {
+  getCompanyInfo();
   window.addEventListener('click', closeDropdown);
 });
 
@@ -140,7 +159,7 @@ onUnmounted(() => {
   align-items: center;
 
   @include sm {
-   flex-direction: column;
+    flex-direction: column;
   }
 
   &__info {
@@ -171,14 +190,14 @@ onUnmounted(() => {
     width: 200px;
     height: 132px;
     flex-shrink: 0;
-    background: url("assets/images/map-desktop.jpg") no-repeat center center;
+    background: url('assets/images/map-desktop.jpg') no-repeat center center;
     background-size: cover;
 
     @include sm {
       order: 0;
       width: 100%;
       height: 96px;
-      background-image: url("assets/images/map-mobile.jpg");
+      background-image: url('assets/images/map-mobile.jpg');
       border-radius: 12px 12px 0 0;
     }
   }

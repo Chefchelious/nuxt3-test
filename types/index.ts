@@ -91,6 +91,10 @@ export interface ICompany {
   workSchedule: IWorkDay[];
 }
 
+export interface ICompanyApi extends ICompany {
+  _id: string;
+}
+
 export interface ITokenSchema {
   refreshToken: string;
   user: ObjectId;

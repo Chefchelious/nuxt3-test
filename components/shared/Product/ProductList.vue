@@ -23,6 +23,7 @@
     <div v-if="loading" class="product-list">
       <p>loading...</p>
     </div>
+<!--    добавить скелетона во время загрузки-->
     <div v-else class="product-list">
       <ProductCard
         v-for="product in products"
