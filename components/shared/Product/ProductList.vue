@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container class="wrapper">
     <div class="select-wrapper">
       <q-select
         v-model="modelValue"
@@ -59,6 +59,12 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
+.wrapper {
+  @include md {
+    padding: 0 16px
+  }
+}
+
 .select-wrapper {
   max-width: 443px;
   margin: 28px auto;

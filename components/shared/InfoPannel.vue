@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container class="wrapper">
     <section class="content-wrapper">
       <div class="desctop-info">
         <div class="img-wrapper">
@@ -103,6 +103,12 @@ const isActiveTab = (tabRoute: string) => {
 <style scoped lang="scss">
 :deep(.q-btn .q-focus-helper) {
   display: none;
+}
+
+.wrapper {
+  @include md {
+    padding: 0 16px
+  }
 }
 
 .content-wrapper {

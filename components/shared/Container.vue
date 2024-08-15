@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :style="{ padding: `0 ${paddingX}px` }"><slot /></div>
+  <div class="container"><slot /></div>
 </template>
 
 <script setup lang="ts">

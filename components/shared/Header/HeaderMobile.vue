@@ -1,5 +1,5 @@
 <template>
-  <Container class="row items-center" :padding-x="16">
+  <Container class="wrapper row items-center">
     <div class="q-mr-auto">
       <q-btn
         unelevated
@@ -42,6 +42,10 @@ const goToHome = () => {
 <style scoped lang="scss">
 :deep(.q-btn .q-focus-helper) {
   display: none;
+}
+
+.wrapper {
+  padding: 0 16px;
 }
 
 .logo {
