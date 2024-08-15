@@ -1,11 +1,5 @@
 import type { ObjectId } from 'mongodb';
 
-export interface IUser {
-  username: string;
-  password: string;
-  avatar?: string;
-}
-
 export enum ProductStatus {
   Rejected = 'rejected',
   Active = 'active',
@@ -21,6 +15,23 @@ export enum Weekday {
   Thursday = 'Thursday',
   Friday = 'Friday',
   Saturday = 'Saturday',
+}
+
+
+export interface IUser {
+  username: string;
+  password: string;
+  avatar?: string;
+}
+
+export interface IUserApi extends IUser {
+  _id: string;
+}
+
+export interface IAuthResponse {
+  user: IUserApi;
+  refreshToken: string;
+  accessToken: string;
 }
 
 export interface IHeaderInfo {

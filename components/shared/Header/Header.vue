@@ -8,15 +8,19 @@
 
 <script lang="ts" setup>
 import { useWindowSizeStore } from '~/store/windowSizeStore';
+import { useUserStore } from '~/store/userStore';
 
 const windowStore = useWindowSizeStore();
 const windowWidth = ref<number | null>(null);
+
+const userStore = useUserStore();
 
 const updateWindowWidth = () => {
   windowWidth.value = window.innerWidth;
 };
 
 onMounted(() => {
+  userStore.getUserFromLS();
   updateWindowWidth();
   window.addEventListener('resize', updateWindowWidth);
 });

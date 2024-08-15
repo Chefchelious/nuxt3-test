@@ -16,7 +16,7 @@
         </q-btn>
       </div>
     </div>
-    <div class="right-col row items-center">
+    <div v-if="user" class="right-col row items-center">
       <p class="geo-position">
         <q-icon :name="`img:${MapMarker}`" />
         Ростов-на-Дону
@@ -39,7 +39,8 @@
         >
           <q-icon :name="`img:${Burger}`" class="q-mr-sm" size="18px" />
           <q-icon
-            :name="`img:${ProfileImage}`"
+            v-if="user.avatar"
+            :name="`img:${user.avatar}`"
             class="profile-icon"
             size="40px"
           />
@@ -47,22 +48,25 @@
           <q-menu anchor="bottom end" self="top right">
             <q-list style="min-width: 100px">
               <q-item v-close-popup dense clickable>
-                <q-item-section>user menu</q-item-section>
+                <q-item-section @click="userStore.logout()">logout</q-item-section>
               </q-item>
             </q-list>
           </q-menu>
         </q-btn>
       </div>
     </div>
+    <q-btn v-else label="login" to="/login" />
   </Container>
 </template>
 
 <script lang="ts" setup>
+import { useUserStore } from '~/store/userStore';
 import CategoryIcon from '~/assets/images/categories.svg';
 import MapMarker from '~/assets/images/marker.svg';
 import Burger from '~/assets/images/burger.svg';
-import ProfileImage from '~/assets/images/profile-image.jpg';
 
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
 const router = useRouter();
 
 const goToHome = () => {
