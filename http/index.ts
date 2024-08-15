@@ -15,13 +15,13 @@ $api.interceptors.request.use((config) => {
 $api.interceptors.response.use((response: AxiosResponse) => {
   if(response.status === 401) {
 
-    window.location.href = '/';
+    window.location.href = '/login';
   }
   return response;
 }, (error) => {
   const response = error.response;
   if(response && response.status === 401) {
-    window.location.href = '/';
+    window.location.href = '/login';
   }
   return Promise.reject(error);
 });

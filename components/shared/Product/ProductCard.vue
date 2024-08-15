@@ -7,7 +7,7 @@
       <span class="product-price">{{ product.price }} ₽</span>
       <p class="product-title">{{ product.title }}</p>
     </div>
-    <q-separator size="1px" color="grey" />
+    <q-separator size="1px" color="grey-4" />
 
     <div
       class="card-footer row items-center no-wrap justify-between q-mt-md q-pa-sm"
@@ -37,9 +37,6 @@ import type { IProductApi } from '~/types';
 defineProps<{
   product: IProductApi;
 }>();
-
-const img =
-  'https://res.cloudinary.com/drldbigc4/image/upload/v1723720624/Img-1_uaucdi.jpg';
 </script>
 
 <style scoped lang="scss">
@@ -75,6 +72,7 @@ const img =
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: auto;
 }
 
 .product-price {

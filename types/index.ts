@@ -65,6 +65,16 @@ export interface IAgent {
   description: string;
 }
 
+export interface IAgentApi {
+  _id: string;
+  name: string;
+  lastname: string;
+  avatar: string;
+  isVerified: boolean;
+  agentFeedback?: IAgentFeedback;
+  description: string;
+}
+
 export interface IWorkDay {
   day: Weekday;
   open: string;

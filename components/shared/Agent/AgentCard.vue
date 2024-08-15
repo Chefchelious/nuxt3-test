@@ -1,37 +1,42 @@
 <template>
   <div class="card">
     <div class="img-wrapper">
-      <img :src="AgentImage" alt="img" class="img" />
+      <img :src="agent.avatar" alt="img" class="img" />
     </div>
 
     <div class="content">
-      <h4 class="title">Дмитрий Хитрый</h4>
+      <h4 class="title">{{ agent.name }} {{ agent.lastname }}</h4>
       <p class="stats q-mb-sm">
-        <span>
+        <span v-if="agent.isVerified">
           <q-icon :name="`img:${Premium}`" />
           Документы проверены
         </span>
-        <span>
+        <span v-if="agent.agentFeedback">
           <q-icon :name="`img:${Star}`" />
-          4.7
+          {{ agent.agentFeedback.rating }}
         </span>
-        <span>19 отзывов</span>
+        <span v-if="agent.agentFeedback"
+          >{{ agent.agentFeedback.reviews }} отзывов</span
+        >
       </p>
     </div>
 
     <div class="description">
       <p>
-        Помог справиться с потерей и организовать похороны для 126 семей ну и
-        еще чуть описания, чтобы дойти до конца строки и текст будет отсекаться
+        {{ agent.description }}
       </p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import AgentImage from '~/assets/images/agent-image.jpg';
 import Premium from 'assets/images/premium.svg';
 import Star from 'assets/images/star.svg';
+import type { IAgentApi } from '~/types';
+
+defineProps<{
+  agent: IAgentApi;
+}>();
 </script>
 
 <style scoped lang="scss">
