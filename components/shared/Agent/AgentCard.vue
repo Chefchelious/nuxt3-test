@@ -7,12 +7,12 @@
     <div class="content">
       <h4 class="title">{{ agent.name }} {{ agent.lastname }}</h4>
       <p class="stats q-mb-sm">
-        <span v-if="agent.isVerified">
-          <q-icon :name="`img:${Premium}`" />
-          Документы проверены
+        <span v-if="agent.isVerified" class="row items-center">
+          <q-icon :name="`img:${Premium}`" class="q-mr-xs" />
+          <span>{{ windowWidth <= 768 ? 'Проверен' : 'Документы проверены' }}</span>
         </span>
-        <span v-if="agent.agentFeedback">
-          <q-icon :name="`img:${Star}`" />
+        <span v-if="agent.agentFeedback" class="row items-center">
+          <q-icon :name="`img:${Star}`" class="q-mr-xs" />
           {{ agent.agentFeedback.rating }}
         </span>
         <span v-if="agent.agentFeedback"
@@ -37,6 +37,20 @@ import type { IAgentApi } from '~/types';
 defineProps<{
   agent: IAgentApi;
 }>();
+
+const windowWidth = ref(window.innerWidth);
+
+const updateWidth = () => {
+  windowWidth.value = window.innerWidth;
+};
+
+onMounted(() => {
+  window.addEventListener('resize', updateWidth);
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWidth);
+});
 </script>
 
 <style scoped lang="scss">
@@ -55,6 +69,7 @@ defineProps<{
     grid-template-columns: 47px 1fr;
     grid-template-rows: auto 1fr;
     row-gap: 0;
+    padding: 16px;
   }
 }
 
@@ -95,9 +110,18 @@ defineProps<{
 
 .stats {
   display: flex;
-  gap: 10px;
   align-items: center;
+  position: relative;
 }
+
+.stats span:not(:last-child)::after {
+  content: '•';
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
+  margin: 0 5px;
+}
+
 
 .description {
   grid-column: 2 / 3;

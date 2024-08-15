@@ -10,10 +10,19 @@
     <q-separator size="1px" color="grey-4" />
 
     <div
-      class="card-footer row items-center no-wrap justify-between q-mt-md q-pa-sm"
+      v-if="product.status === ProductStatus.Active"
+      class="card-footer row items-center no-wrap justify-between q-pa-sm"
     >
       <span class="boost-text">Увеличьте количество просмотров</span>
       <q-btn class="boost-btn text-white q-pa-sm" label="Продвигать" no-caps />
+    </div>
+
+    <div v-else-if="product.status === ProductStatus.Featured" class="card-footer promoted q-pa-sm text-center text-green-7">
+      <p>Объявление продвигается</p>
+    </div>
+
+    <div v-else-if="product.status === ProductStatus.Hidden" class="card-footer promoted q-pa-sm text-center text-red-7">
+      <p>Объявление скрыто</p>
     </div>
 
     <div class="info-block row items-center no-wrap">
@@ -32,7 +41,7 @@
 <script lang="ts" setup>
 import EyeIcon from '~/assets/images/eye-icon.svg';
 import CalendarIcon from '~/assets/images/calendar.svg';
-import type { IProductApi } from '~/types';
+import { type IProductApi, ProductStatus } from '~/types';
 
 defineProps<{
   product: IProductApi;
@@ -72,7 +81,6 @@ defineProps<{
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: auto;
 }
 
 .product-price {
@@ -84,6 +92,10 @@ defineProps<{
 .product-title {
   font-weight: 500;
   line-height: 24px;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .boost-btn {
@@ -98,7 +110,16 @@ defineProps<{
 }
 
 .card-footer {
+  flex: 1;
+  margin-top: auto;
   gap: 8px;
+}
+
+.promoted {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .info-block {
