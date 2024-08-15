@@ -14,7 +14,7 @@
         popup-content-class="bg-grey-2"
       >
         <template v-if="!modelValue" #selected>
-          <div class="text-weight-regular text-black placeholder-size">
+          <div class="placeholder text-black">
             Все товары и услуги
           </div>
         </template>
@@ -63,13 +63,14 @@ onMounted(() => {
 <style scoped lang="scss">
 .select-wrapper {
   max-width: 443px;
-  margin: 26px auto;
+  margin: 28px auto;
 }
 
 .product-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 21px;
+  row-gap: 52px;
   margin-bottom: 73px;
 }
 
@@ -89,5 +90,10 @@ onMounted(() => {
   .product-list {
     grid-template-columns: 1fr;
   }
+}
+
+.placeholder {
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 </style>

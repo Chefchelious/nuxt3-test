@@ -1,10 +1,10 @@
 <template>
   <Container class="row justify-between items-center">
     <div class="left-col row items-center">
-      <h1 class="logo q-mr-lg cursor-pointer" @click="goToHome">Annoncé</h1>
+      <h1 class="logo cursor-pointer" @click="goToHome">Annoncé</h1>
       <div>
-        <q-btn unelevated :ripple="false" class="category-btn q-py-sm" no-caps>
-          <q-icon :name="`img:${CategoryIcon}`" class="q-mr-sm" />
+        <q-btn unelevated :ripple="false" class="category-btn category-btn--large" no-caps>
+          <q-icon :name="`img:${CategoryIcon}`" class="q-mr-xs" />
           Все категории
           <q-menu anchor="bottom start" self="top left">
             <q-list style="min-width: 100px">
@@ -21,13 +21,13 @@
         <q-icon :name="`img:${MapMarker}`" />
         Ростов-на-Дону
       </p>
-      <q-separator class="q-mx-md" size="1px" color="grey-13" vertical inset />
+      <q-separator class="separator-line" size="1px" color="grey-13" vertical inset />
       <q-btn
         unelevated
         :ripple="false"
         no-caps
         label="Разместить объявления"
-        class="publish-ad q-mr-lg q-pa-none"
+        class="publish-ad q-pa-none"
       />
       <div>
         <q-btn
@@ -80,6 +80,7 @@ const goToHome = () => {
   line-height: 28px;
   font-size: 28px;
   font-weight: 600;
+  margin: 0 38px 0 10px;
 }
 
 :deep(.q-btn .q-focus-helper) {
@@ -93,8 +94,17 @@ const goToHome = () => {
   font-weight: 500;
 }
 
+.category-btn--large {
+  padding: 12px 15px
+}
+
+.separator-line {
+  margin: 8px 36px 8px 30px;
+}
+
 .publish-ad {
   color: $positive-dark;
+  margin-right: 42px;
 }
 
 .profile-icon {

@@ -1,26 +1,26 @@
 <template>
   <Container>
-    <section class="content-wrapper q-pb-lg">
+    <section class="content-wrapper">
       <div class="desctop-info">
-        <div class="img-wrapper q-mb-md">
+        <div class="img-wrapper">
           <img class="img" :src="LegacyImg" alt="img" />
         </div>
         <h3 class="title q-mb-sm cursor-pointer">Наследие</h3>
-        <p class="stats q-mb-md">
+        <div class="stats q-mb-lg">
           <span>
             <q-icon :name="`img:${Premium}`" />
-            Документы проверены
+            <span>Документы проверены</span>
           </span>
           <span>
             <q-icon :name="`img:${Star}`" />
-            4.7
+            <span>4.7</span>
           </span>
           <span>19 отзывов</span>
-        </p>
+        </div>
 
         <q-btn
           :label="`${isVisibleNumber ? '+7-xxx-xxx-xx' : 'Показать номер телефона'}`"
-          class="show-number-btn text-white q-py-md q-mb-lg"
+          class="show-number-btn text-white q-py-md"
           no-caps
           @click="toggleNumberVisibilyty"
         />
@@ -44,7 +44,9 @@
             unelevated
             :ripple="false"
             :to="tab.route"
-          />
+          >
+            <span v-if="tab.quantity" class="q-ml-xs text-grey-7">{{ tab.quantity }}</span>
+          </q-btn>
         </swiper-slide>
       </swiper>
     </section>
@@ -103,14 +105,17 @@ const isActiveTab = (tabRoute: string) => {
   display: none;
 }
 
-.content-wrapper,
-.desctop-info {
-  max-width: 560px;
+.content-wrapper {
+  max-width: 368px;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 29px;
+}
+
+.desctop-info {
+  text-align: center;
 }
 
 .desctop-info {
@@ -123,6 +128,7 @@ const isActiveTab = (tabRoute: string) => {
   overflow: hidden;
   width: 120px;
   border-radius: 20px;
+  margin: 0 auto 24px;
 }
 
 .img {
@@ -144,15 +150,16 @@ const isActiveTab = (tabRoute: string) => {
 .stats span:not(:last-child)::after {
   content: '•';
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
   color: #000;
-  margin: 0 5px;
+  margin: 0 6px;
 }
 
 .show-number-btn {
   min-width: 224px;
   background-color: #337566;
   border-radius: 12px;
+  margin-bottom: 31px;
 }
 
 .mySwiper {

@@ -11,7 +11,7 @@
 
     <div
       v-if="product.status === ProductStatus.Active"
-      class="card-footer row items-center no-wrap justify-between q-pa-sm"
+      class="card-footer row items-center no-wrap justify-between"
     >
       <span class="boost-text">Увеличьте количество просмотров</span>
       <q-btn class="boost-btn text-white q-pa-sm" label="Продвигать" no-caps />
@@ -27,11 +27,11 @@
 
     <div class="info-block row items-center no-wrap">
       <div class="views q-mr-sm">
-        <q-icon :name="`img:${EyeIcon}`" size="20px" />
+        <q-icon :name="`img:${EyeIcon}`" size="22px" class="q-mr-sm" />
         <span>{{ product.views }}</span>
       </div>
       <div class="days-ago">
-        <q-icon :name="`img:${CalendarIcon}`" size="20px" />
+        <q-icon :name="`img:${CalendarIcon}`" size="22px" />
         <span>4 дня</span>
       </div>
     </div>
@@ -63,7 +63,8 @@ defineProps<{
   border-radius: 12px;
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 3.05;
+  margin-bottom: 9px;
 
   @include md {
     aspect-ratio: 1 / 1;
@@ -80,7 +81,7 @@ defineProps<{
 .product-details {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .product-price {
@@ -113,6 +114,7 @@ defineProps<{
   flex: 1;
   margin-top: auto;
   gap: 8px;
+  padding: 12px 10px;
 }
 
 .promoted {
@@ -124,8 +126,8 @@ defineProps<{
 
 .info-block {
   position: absolute;
-  left: 8px;
-  top: 8px;
+  left: 16px;
+  top: 10px;
 }
 
 .views,
