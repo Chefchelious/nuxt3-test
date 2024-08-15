@@ -3,7 +3,7 @@
     <div class="product-image-wrapper">
       <img
         class="product-image"
-        :src="ProductImage"
+        :src="img"
         alt="Product Image"
       />
     </div>
@@ -35,6 +35,8 @@
 import ProductImage from '~/assets/images/product-image.jpg';
 import EyeIcon from '~/assets/images/eye-icon.svg';
 import CalendarIcon from '~/assets/images/calendar.svg';
+
+const img = 'https://res.cloudinary.com/drldbigc4/image/upload/v1723720624/Img-1_uaucdi.jpg'
 </script>
 
 <style scoped lang="scss">

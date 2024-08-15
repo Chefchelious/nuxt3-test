@@ -11,7 +11,7 @@ const ProductSchema = new Schema<IProduct>({
     required: true,
   },
   price: {
-    type: Number,
+    type: String,
     required: true,
   },
   views: {

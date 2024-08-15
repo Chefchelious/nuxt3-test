@@ -29,7 +29,7 @@ export interface IHeaderInfo {
 
 export interface IProduct {
   title: string;
-  price: number;
+  price: string;
   views: number;
   createdAt: string;
   image: string;
@@ -37,7 +37,7 @@ export interface IProduct {
 }
 
 export interface IAgentFeedback {
-  rating: number;
+  rating: string;
   reviews: number; // в реале это будет массив с отзывом и ссылкой на пользователя
 }
 
@@ -46,7 +46,7 @@ export interface IAgent {
   lastname: string;
   avatar: string;
   isVerified: boolean;
-  agentFeedback: ObjectId;
+  agentFeedback?: ObjectId;
   description: string;
 }
 
@@ -60,8 +60,8 @@ export interface ICompany {
   description: string;
   address: string;
   location: {
-    latitude: number;
-    longitude: number;
+    latitude: string;
+    longitude: string;
   };
   workSchedule: IWorkDay[];
 }

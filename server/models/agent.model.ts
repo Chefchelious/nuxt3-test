@@ -21,6 +21,10 @@ const AgentSchema = new Schema<IAgent>({
   agentFeedback: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'AgentFeedBack',
+    required: false,
+  },
+  description: {
+    type: String,
     required: true,
   }
 })

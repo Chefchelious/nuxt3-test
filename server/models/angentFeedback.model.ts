@@ -3,7 +3,7 @@ import type { IAgentFeedback } from '~/types';
 
 const AgentFeedbackSchema = new Schema<IAgentFeedback>({
   rating: {
-    type: Number,
+    type: String,
     required: true,
   },
   reviews: {
