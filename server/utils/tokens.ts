@@ -5,7 +5,7 @@ const config = useRuntimeConfig();
 
 export const generateTokens = (payload: { username: string }) => {
   const accessToken = jwt.sign(payload, config.public.jwtAccessSecret, {
-    expiresIn: '30m',
+    expiresIn: '30d', // поменять на 20мин-8ч
   });
 
   const refreshToken = jwt.sign(payload, config.public.jwtRefreshSecret, {
