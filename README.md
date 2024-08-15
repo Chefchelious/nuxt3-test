@@ -1,75 +1,42 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 + Server Routes + JWT Auth
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Описание
 
-## Setup
+Приложение для предоставления товаров и услуг, реализованное на **Nuxt 3** с использованием **Server Routes**. В качестве базы данных используется облачное хранилище **MongoDB Atlas**. На проекте подключен state-manager **Pinia** для управления состоянием, **Composition API** и **TypeScript** для типизации и улучшения разработки.
 
-Make sure to install the dependencies:
+## Функциональность
 
+- **JWT авторизация**:
+    - Реализована через пару токенов: **access** и **refresh**.
+    - Токены хранятся в **local storage** и **cookie**.
+
+- **Защищенные роуты**:
+    - На стороне сервера и клиента.
+    - Использование **axios** интерсепторов и **Nuxt Middleware** для защиты роутов.
+
+- **Базовая настройка**:
+    - **Prettier** для форматирования кода.
+    - **ESLint** для статического анализа кода.
+
+## Установка
+
+1. **Клонируйте репозиторий:**
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+   git clone https://github.com/Chefchelious/nuxt3-test.git
 ```
 
-## Development Server
+2. **Перейдите в директорию проекта и установите зависимости:**
+   ```bash
+   cd nuxt3-test
+   npm install
+   ```
+3. **Настройте переменные окружения, создайте .env, для примера есть .env.example**
 
-Start the development server on `http://localhost:3000`:
+4. **Запуск проекта:**
 
-```bash
-# npm
-npm run dev
+   ```bash
+   npm run dev
+   ```
+5. Открыть в браузере: http://localhost:3000/
 
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Страница логина доступна по пути http://localhost:3000/login

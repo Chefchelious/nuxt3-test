@@ -14,16 +14,14 @@
         popup-content-class="bg-grey-2"
       >
         <template v-if="!modelValue" #selected>
-          <div class="placeholder text-black">
-            Все товары и услуги
-          </div>
+          <div class="placeholder text-black">Все товары и услуги</div>
         </template>
       </q-select>
     </div>
     <div v-if="loading" class="product-list">
       <p>loading...</p>
     </div>
-<!--    добавить скелетона во время загрузки-->
+    <!--    добавить скелетона во время загрузки-->
     <div v-else class="product-list">
       <ProductCard
         v-for="product in products"
