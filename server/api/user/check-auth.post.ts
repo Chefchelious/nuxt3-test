@@ -15,8 +15,9 @@ export default defineEventHandler(async (event) => {
     }
     try {
       jwt.verify(accessToken, config.public.jwtAccessSecret);
+
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       return createError({ statusCode: 401, statusMessage: 'Unauthorized' });
     }
   } catch (e: unknown) {

@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import Burger from '~/assets/images/burger.svg';
+import Burger from 'assets/images/burger.svg';
 import Bag from '~/assets/images/bag.svg';
 
 const router = useRouter();

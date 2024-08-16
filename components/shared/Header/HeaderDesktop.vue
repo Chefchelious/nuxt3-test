@@ -63,7 +63,7 @@
 import { useUserStore } from '~/store/userStore';
 import CategoryIcon from '~/assets/images/categories.svg';
 import MapMarker from '~/assets/images/marker.svg';
-import Burger from '~/assets/images/burger.svg';
+import Burger from 'assets/images/burger.svg';
 
 const userStore = useUserStore();
 const { user } = storeToRefs(userStore);
