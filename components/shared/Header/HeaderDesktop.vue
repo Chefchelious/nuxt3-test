@@ -69,6 +69,8 @@ const userStore = useUserStore();
 const { user } = storeToRefs(userStore);
 const router = useRouter();
 
+// при логауте сделать пуш на ту же страницу чтобы отработал middleware или рефрешнуть
+
 const goToHome = () => {
   router.push('/');
 };
